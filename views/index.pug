@@ -1,5 +1,14 @@
 extends ./partials/layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    h1.mb-4 Blog Article
+    a(href="/articles/new" class="btn btn-success") New Article
+
+    each article in articles
+      .card.mt-4
+        .card-body
+          h2.card-title= article.title
+          div.card-subtitle.text-muted= article.createdAt.toLocaleDateString()
+          p.card-text= article.content
+          a.btn.btn-primary(href=`/articles/`) Read More
