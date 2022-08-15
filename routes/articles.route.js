@@ -19,4 +19,8 @@ router.get("/", (req, res) => {
   res.render("articles/index", { articles });
 });
 
+router.get("/new", (req, res) => {
+  res.render("articles/new");
+});
+
 module.exports = router;
