@@ -2,7 +2,7 @@ extends ../partials/layout
 
 block content
   .container
-    h1.mb-4 Blog Article
+    h1.mb-4.mt-3 Blog Article
     a(href="/articles/new" class="btn btn-success") New Article
 
     each article in articles
@@ -10,5 +10,5 @@ block content
         .card-body
           h2.card-title= article.title
           div.card-subtitle.text-muted.mb-2= article.createdAt.toLocaleDateString()
-          p.card-text= article.content
+          p.card-text= article.description
           a.btn.btn-primary(href=`/articles/`) Read More
