@@ -5,10 +5,13 @@ block content
     h1.mb-4.mt-3 Blog Article
     a(href="/articles/new" class="btn btn-success") New Article
 
-    each article in articles
-      .card.mt-4
-        .card-body
-          h2.card-title= article.title
-          div.card-subtitle.text-muted.mb-2= article.createdAt.toLocaleDateString()
-          p.card-text= article.description
-          a.btn.btn-primary(href=`/articles/`) Read More
+    if articles && articles.lengh > 0
+      each article in articles
+        .card.mt-4
+          .card-body
+            h2.card-title= article.title
+            div.card-subtitle.text-muted.mb-2= article.createdAt.toLocaleDateString()
+            p.card-text= article.description
+            a.btn.btn-primary(href=`/articles/`) Read More
+    else
+      .alert.alert-info.mt-3 No articles found, please create one to get started.
