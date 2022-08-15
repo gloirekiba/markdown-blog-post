@@ -6,14 +6,12 @@ router.get("/", (req, res) => {
     {
       title: "Article 1",
       createdAt: new Date(),
-      content:
-        "This is the content of article 1 and it is very interesting indeed.",
+      description: "Article 1 description",
     },
     {
       title: "Article 2",
       createdAt: new Date(),
-      content:
-        "This is the content of article 2 and it is very interesting indeed.",
+      description: "This is the content of article 2.",
     },
   ];
   res.render("articles/index", { articles });
