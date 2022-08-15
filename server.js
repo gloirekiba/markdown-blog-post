@@ -12,7 +12,21 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.render("index", { title: "Home" });
+  const articles = [
+    {
+      title: "Article 1",
+      createdAt: new Date(),
+      content:
+        "This is the content of article 1 and it is very interesting indeed.",
+    },
+    {
+      title: "Article 2",
+      createdAt: new Date(),
+      content:
+        "This is the content of article 2 and it is very interesting indeed.",
+    },
+  ];
+  res.render("index", { articles });
 });
 
 const PORT = process.env.PORT;
