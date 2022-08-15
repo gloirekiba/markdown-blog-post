@@ -1,24 +1,32 @@
 const express = require("express");
+
+const Article = require("../models/articles.model");
+
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  const articles = [
-    {
-      title: "Article 1",
-      createdAt: new Date(),
-      description: "Article 1 description",
-    },
-    {
-      title: "Article 2",
-      createdAt: new Date(),
-      description: "This is the content of article 2.",
-    },
-  ];
+router.get("/", async (req, res) => {
+  const articles = Article.find({}).sort({ createdAt: "desc" });
   res.render("articles/index", { articles });
 });
 
 router.get("/new", (req, res) => {
   res.render("articles/new");
+});
+
+router.post("/", async (req, res) => {
+  const { title, description, markdown } = req.body;
+
+  try {
+    const article = new Article({
+      title,
+      description,
+      markdown,
+    });
+    await article.save();
+  } catch (error) {
+    console.log(error);
+    res.redirect("/articles/new");
+  }
 });
 
 module.exports = router;
