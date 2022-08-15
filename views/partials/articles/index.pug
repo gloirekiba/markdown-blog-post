@@ -9,6 +9,6 @@ block content
       .card.mt-4
         .card-body
           h2.card-title= article.title
-          div.card-subtitle.text-muted= article.createdAt.toLocaleDateString()
+          div.card-subtitle.text-muted.mb-2= article.createdAt.toLocaleDateString()
           p.card-text= article.content
           a.btn.btn-primary(href=`/articles/`) Read More
