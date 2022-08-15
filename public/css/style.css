@@ -5,3 +5,12 @@ body {
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
 }
+
+textarea {
+  resize: none;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
