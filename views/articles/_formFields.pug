@@ -1,0 +1,6 @@
+.form-group.mb-3(method="POST" action="/articles")
+  label(for="title") Title
+  input.form-control(type="text" name="title" id="title" placeholder="Title" required)
+.form-group.mb-3
+  label(for="content") Content
+  textarea.form-control(name="content" id="content" rows="10" placeholder="Content" required)
