@@ -3,6 +3,8 @@ const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 
+const articlesRouter = require("./routes/articles.route");
+
 const app = express();
 
 app.set("view engine", "pug");
@@ -11,23 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(morgan("dev"));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  const articles = [
-    {
-      title: "Article 1",
-      createdAt: new Date(),
-      content:
-        "This is the content of article 1 and it is very interesting indeed.",
-    },
-    {
-      title: "Article 2",
-      createdAt: new Date(),
-      content:
-        "This is the content of article 2 and it is very interesting indeed.",
-    },
-  ];
-  res.render("index", { articles });
-});
+app.use("/articles", articlesRouter);
 
 const PORT = process.env.PORT;
 
