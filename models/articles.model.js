@@ -18,10 +18,6 @@ const articleSchema = new mongoose.Schema({
     default: () => Date.now(),
     imnutable: true,
   },
-  updatedAt: {
-    type: Date,
-    default: () => Date.now(),
-  },
   slug: {
     type: String,
     required: true,
