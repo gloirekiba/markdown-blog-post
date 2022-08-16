@@ -35,6 +35,11 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  await Article.findByIdAndDelete(req.params.id);
+  res.redirect("/articles");
+});
+
 router.get("/:slug", async (req, res) => {
   const article = await Article.findOne({ slug: req.params.slug });
   if (article == null) res.redirect("/");
