@@ -13,6 +13,11 @@ router.get("/new", (req, res) => {
   res.render("articles/new");
 });
 
+router.get("/edit/:id", async (req, res) => {
+  const article = await Article.findById(req.params.id);
+  res.render("articles/edit", { article });
+});
+
 router.post("/", async (req, res) => {
   const { title, description, markdown } = req.body;
   try {
