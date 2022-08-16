@@ -17,6 +17,10 @@ app.use(express.json());
 
 app.use("/articles", articlesRouter);
 
+app.get("/", (req, res) => {
+  res.redirect("articles");
+});
+
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
