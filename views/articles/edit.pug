@@ -1,0 +1,8 @@
+extend ../partials/layout
+
+block content
+  .container
+    h1.mb-4.mt-3 Edit Article
+    include ../partials/alert
+    form(action=`/articles/${article.id}?_method=PUT` method="POST")
+      include ./_formFields
