@@ -5,8 +5,15 @@ const Article = require("../models/articles.model");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
-  const articles = Article.find({}).sort({ createdAt: "desc" });
+  const articles = await Article.find({}).sort({ createdAt: "desc" });
+  console.log(articles);
   res.render("articles/index", { articles });
+});
+
+router.get("/:id", async (req, res) => {
+  const article = await Article.findById(req.params.id);
+  if (article == null) res.redirect("/");
+  res.render("articles/show", { article });
 });
 
 router.get("/new", (req, res) => {
@@ -17,19 +24,19 @@ router.post("/", async (req, res) => {
   const { title, description, markdown } = req.body;
 
   try {
-    const article = new Article({
+    const newArticle = new Article({
       title,
       description,
       markdown,
     });
-    await article.save();
-    res.redirect("/articles");
+    await newArticle.save();
+    res.redirect(`articles/${newArticle.id}`);
   } catch (error) {
     console.log(error);
     res.render("articles/new", {
       alert: {
         type: "danger",
-        message: "Something went wrong",
+        message: error.message,
       },
     });
   }
