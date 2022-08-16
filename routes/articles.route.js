@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   const articles = await Article.find({}).sort({ createdAt: "desc" });
-  console.log(articles);
   res.render("articles/index", { articles });
 });
 
@@ -24,7 +23,7 @@ router.post("/", async (req, res) => {
       markdown,
     });
     await newArticle.save();
-    res.redirect(`articles/${newArticle.id}`);
+    res.redirect(`articles/${newArticle.slug}`);
   } catch (error) {
     console.log(error);
     res.render("articles/new", {
@@ -36,8 +35,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
-  const article = await Article.findById(req.params.id);
+router.get("/:slug", async (req, res) => {
+  const article = await Article.findOne({ slug: req.params.slug });
   if (article == null) res.redirect("/");
   res.render("articles/show", { article });
 });
