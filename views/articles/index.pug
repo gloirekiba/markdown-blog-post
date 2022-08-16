@@ -12,6 +12,6 @@ block content
             h2.card-title= article.title
             div.card-subtitle.text-muted.mb-2= article.createdAt.toLocaleDateString()
             p.card-text= article.description
-            a.btn.btn-primary(href=`/articles/${article.id}`) Read More
+            a.btn.btn-primary(href=`/articles/${article.slug}`) Read More
     else
       .alert.alert-info.mt-3 No articles found, please create one to get started.
