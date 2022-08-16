@@ -15,7 +15,6 @@ router.get("/new", (req, res) => {
 
 router.post("/", async (req, res) => {
   const { title, description, markdown } = req.body;
-
   try {
     const newArticle = new Article({
       title,
