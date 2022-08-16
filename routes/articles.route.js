@@ -23,9 +23,15 @@ router.post("/", async (req, res) => {
       markdown,
     });
     await article.save();
+    res.redirect("/articles");
   } catch (error) {
     console.log(error);
-    res.redirect("/articles/new");
+    res.render("articles/new", {
+      alert: {
+        type: "danger",
+        message: "Something went wrong",
+      },
+    });
   }
 });
 
