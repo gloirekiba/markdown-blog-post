@@ -1,7 +1,5 @@
 <h1 align="center">Markdown Blog Post</h1>
-
-Markdown Blog Post is a blog post written in markdown and rendered in HTML.
-<p align="center"></p>
+<p align="center">Markdown Blog Post is a blog post written in markdown and rendered in HTML.</p>
 
 
 ## Technologies used
