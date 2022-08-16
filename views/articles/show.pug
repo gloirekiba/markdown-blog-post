@@ -7,4 +7,4 @@ block content
     a.btn.btn-secondary.me-1(href="/") All Articles
     a.btn.btn-info(href=`/articles/edit/${article.id}`) Edit
     hr.my-2
-    p= article.markdown
+    div !{article.sanitizedHtml}
