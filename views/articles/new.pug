@@ -3,5 +3,6 @@ extends ../partials/layout
 block content
   .container
     h1.mb-4.mt-3 New Article
+    include ../partials/alert
     form(action="/articles" method="POST")
       include ../articles/_formFields
