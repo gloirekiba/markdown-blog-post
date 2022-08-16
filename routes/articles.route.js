@@ -10,12 +10,6 @@ router.get("/", async (req, res) => {
   res.render("articles/index", { articles });
 });
 
-router.get("/:id", async (req, res) => {
-  const article = await Article.findById(req.params.id);
-  if (article == null) res.redirect("/");
-  res.render("articles/show", { article });
-});
-
 router.get("/new", (req, res) => {
   res.render("articles/new");
 });
@@ -40,6 +34,12 @@ router.post("/", async (req, res) => {
       },
     });
   }
+});
+
+router.get("/:id", async (req, res) => {
+  const article = await Article.findById(req.params.id);
+  if (article == null) res.redirect("/");
+  res.render("articles/show", { article });
 });
 
 module.exports = router;
