@@ -1,12 +1,12 @@
-.form-group.mb-3(method="POST" action="/articles")
+.form-group.mb-3
   label.mb-1(for="title") Title
-  input.form-control(type="text" name="title" id="title" placeholder="Title" required)
+  input.form-control(type="text" name="title" id="title" value=`${article.title || ""}` placeholder="Title" required )
 .form-group.mb-3
   label.mb-1(for="descripttion") Description
-  textarea.form-control(name="description" id="description" rows="5" placeholder="Description" required)
+  textarea.form-control(name="description" id="description" rows="5" placeholder="Description" required)= article.description
 .form-group.mb-3
   label.mb-1(for="markdown") Markdown
-  textarea.form-control(name="markdown" id="markdown" rows="10" placeholder="Markdown" required)
+  textarea.form-control(name="markdown" id="markdown" rows="10" placeholder="Markdown" required)= article.markdown
 
 a.btn.btn-secondary.me-1(href="/articles") Cancel
 button.btn.btn-primary(type="submit") Save
