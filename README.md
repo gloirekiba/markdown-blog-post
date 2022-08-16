@@ -17,4 +17,5 @@ Markdown Blog Post is a blog post written in markdown and rendered in HTML.
 ## Screenshots
 
 ![website screenshot](https://gdurl.com/I3BW/)
+
 ![website screenshot](https://gdurl.com/sWwc/)
