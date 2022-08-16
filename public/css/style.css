@@ -9,3 +9,7 @@ body {
 textarea {
   resize: none;
 }
+
+textarea {
+  resize: vertical;
+}
